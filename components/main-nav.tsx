@@ -2,33 +2,35 @@
 
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
-import { useParams, usePathname } from 'next/navigation';
+
 
 const MainNav = ({
   className,
   ...props
 }: React.HtmlHTMLAttributes<HTMLElement>) => {
 
-
-
   const routes = [
     {
-      href: '/#contato',
+      href: '#home',
+      label: 'Home',
+    },
+    {
+      href: '#especialidades',
+      label: 'Especialidades',
+    },
+    {
+      href: '#sobre',
+      label: 'Sobre',
+    },
+    {
+      href: '#contato',
       label: 'Contato',
-    },
-    {
-      href: '/#sobre-mim',
-      label: 'Sobre mim',
-    },
-    {
-      href: '/#servicos',
-      label: 'Serviços',
     },
   ];
 
   return (
     <nav
-      className={cn('flex items-center space-x-4 lg:space-x-6', className)}
+      className={cn('flex items-center space-x-1 lg:space-x-6 md:bg-white md:rounded-none bg-gray-100 rounded-full', className)}
     >
       {routes.map((route) => (
         <Link
@@ -36,7 +38,7 @@ const MainNav = ({
           href={route.href}
           className={
             cn(
-              'text-xs md:text-sm mt-2 md:mt-0 border border-zinc-400 rounded px-3 py-0.5 font-medium transition-colors hover:text-primary text-muted-foreground',
+              'text-xs md:text-2xl md:mt-0 subpixel-antialiased font-medium spacing transition duration-300 ease-in-out text-lightDark hover:bg-black hover:text-white p-4 rounded-full',
             )}
         >
           {route.label}
